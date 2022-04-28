@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from app.models import Note
 
 
 def note_list(request):
-    return render(request, 'app/list.html')
+    obj_list = Note.objects.all()
+    return render(request, 'app/list.html', {"list": obj_list})
